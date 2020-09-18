@@ -7,7 +7,7 @@ class Middle extends Component{
 
         return(
             <Fragment>
-                <Container>
+                <Container id="aboutMe">
                     <Row>
                         <Col md={6} className="p-0 d-none d-lg-block">
                             <Media>
@@ -24,8 +24,8 @@ class Middle extends Component{
                                     Currently Working as a Software Engineer in MakemyTrip (Gurugram) in Flights-Teams. 
                                 </h5>
                             </div>
-                            <div classname="info-section">
-                                <ul class="about-info mt-4">
+                            <div className="info-section">
+                                <ul className="about-info mt-4">
                                     <li><div className="field"> Name : </div>  <span className="answer"> Piyush Raj</span></li>
                                     <li><span className="field"> Date of Birth : </span> <span className="answer"> 1st March,1997</span></li>
                                     <li><span className="field"> Address : </span> <span className="answer">Gurugram,India</span></li>

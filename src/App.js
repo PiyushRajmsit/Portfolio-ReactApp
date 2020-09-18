@@ -1,9 +1,11 @@
 import React,{Component,Fragment} from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import Navigation from './Containers/Navigation/Navigations';
 import Middle from './Containers/MiddleContent/Middle';
 import Intro from './Containers/AboutMe/AboutMe';
+import Resume from './Containers/Resume/Resume';
+import Contact from './Containers/ContactMe/Contact';
+import Footer from './Containers/Footers/Footer';
 class App extends Component{
 
   render(){
@@ -12,6 +14,9 @@ class App extends Component{
         <Navigation/>
         <Intro/>
         <Middle/>
+        <Resume/>
+        <Contact/>
+        <Footer/>
       </Fragment>
     )
   }

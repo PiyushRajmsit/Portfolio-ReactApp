@@ -54,15 +54,14 @@ class Intro extends Component{
     }
 
     componentDidMount(){
-        console.log('ComponentDidMount');
+        // console.log('ComponentDidMount');
         interval = setInterval(this.type,100);
     }
 
     render() {
         return(
             <React.Fragment>
-                    <section className="section">
-                        
+                    <section className="section"  id="home">
                     </section>
                     <div className="Intro text text-center">
                         <span className="subheading">

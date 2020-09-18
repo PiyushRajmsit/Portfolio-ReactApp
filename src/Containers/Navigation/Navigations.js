@@ -3,7 +3,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Media from 'react-bootstrap/Media';
 import Container from 'react-bootstrap/Container';
-import Logo from '../../Assets/Images/Raj_Logo.png'
+import Logo from '../../Assets/Images/Raj_Logo.png';
+import LogoPR from '../../Assets/Images/android-chrome-192x192.png';
 class Navigation extends Component{
 
     render(){
@@ -12,17 +13,17 @@ class Navigation extends Component{
                     <Container>
                         <Navbar.Brand href="#home">
                             <Media>
-                                <img src={Logo} width={70} height={70}/>
+                                <img src={LogoPR} alt={Logo}  width={50} height={50}/>
                             </Media>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                             <Nav>
-                                <Nav.Link href="#home">Home</Nav.Link>
-                                <Nav.Link href="#aboutMe">About Me</Nav.Link>
-                                <Nav.Link href="#resume">Resume</Nav.Link>
-                                <Nav.Link href="#contactMe">Contact Me</Nav.Link>
-                                <Nav.Link href="#downloadCV">Download CV</Nav.Link>
+                                <Nav.Link className="fw" href="#home">Home</Nav.Link>
+                                <Nav.Link className="fw" href="#aboutMe">About Me</Nav.Link>
+                                <Nav.Link className="fw" href="#resume">Resume</Nav.Link>
+                                <Nav.Link className="fw" href="#contactMe">Contact Me</Nav.Link>
+                                <Nav.Link className="fw" href="#downloadCV">Download CV</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
