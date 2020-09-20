@@ -3,7 +3,7 @@ import {Container,Row,Col,Media,Image,Button} from 'react-bootstrap';
 import Profile from '../../Assets/Images/Profile-2.jpg';
 import axios from '../../axios';
 import LineShimmer from '../../UI/Shimmer/Shimmer';
-import {resumeUrl} from '../../Constant/constant';
+import ResumeUrl from '../../Utility/utility';
 import './Middle.css';
 class Middle extends Component{
 
@@ -23,7 +23,9 @@ class Middle extends Component{
         });
     }
     getResumeUrl = () =>{
-        window.open(resumeUrl,"_blank");
+        ResumeUrl().then(response =>{
+            window.open(response,"_blank");
+        });
     }
     render(){
         return(
