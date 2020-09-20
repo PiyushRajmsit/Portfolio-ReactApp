@@ -3,6 +3,7 @@ import {Container,Row,Col,Media,Image,Button} from 'react-bootstrap';
 import Profile from '../../Assets/Images/Profile-2.jpg';
 import axios from '../../axios';
 import LineShimmer from '../../UI/Shimmer/Shimmer';
+import {resumeUrl} from '../../Constant/constant';
 import './Middle.css';
 class Middle extends Component{
 
@@ -20,6 +21,9 @@ class Middle extends Component{
         }).catch(error =>{
             console.log(error);
         });
+    }
+    getResumeUrl = () =>{
+        window.open(resumeUrl,"_blank");
     }
     render(){
         return(
@@ -48,7 +52,7 @@ class Middle extends Component{
                                     <li><span className="field"> Email : </span> <span className="answer">{ this.state === null ? <LineShimmer styles={{width: "50%",height: "1.2em"}}/> : this.state.email}</span></li>
                                 </ul>
                                 <div className="about-info">
-                                    <Button size="lg"> Download CV </Button>
+                                    <Button size="lg" onClick={this.getResumeUrl} > Download CV </Button>
                                 </div>
                             </div>
                             

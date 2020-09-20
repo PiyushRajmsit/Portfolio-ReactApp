@@ -1,0 +1,1 @@
+export const resumeUrl = "https://drive.google.com/file/d/1gO4j9IM-SksgVRVCmVvfoUOSuW-Ly67C/view";

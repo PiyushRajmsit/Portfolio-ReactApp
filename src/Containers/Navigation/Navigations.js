@@ -5,8 +5,12 @@ import Media from 'react-bootstrap/Media';
 import Container from 'react-bootstrap/Container';
 import Logo from '../../Assets/Images/Raj_Logo.png';
 import LogoPR from '../../Assets/Images/android-chrome-192x192.png';
+import {resumeUrl} from '../../Constant/constant';
 class Navigation extends Component{
 
+    state = {
+        url: resumeUrl
+    }
     render(){
         return(
                 <Navbar bg="light" expand="lg" fixed="top" collapseOnSelect>
@@ -23,7 +27,7 @@ class Navigation extends Component{
                                 <Nav.Link className="fw" href="#aboutMe">About Me</Nav.Link>
                                 <Nav.Link className="fw" href="#resume">Resume</Nav.Link>
                                 <Nav.Link className="fw" href="#contactMe">Contact Me</Nav.Link>
-                                <Nav.Link className="fw" href="#downloadCV">Download CV</Nav.Link>
+                                <Nav.Link className="fw" target="_blank" href={this.state.url}>Download CV</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
