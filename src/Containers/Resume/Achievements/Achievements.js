@@ -1,5 +1,6 @@
 import React,{Component,Fragment} from 'react';
 import Achievement from './Achievement/Achievement';
+import axios from '../../../axios';
 
 class Achievements extends Component{
 
@@ -12,6 +13,21 @@ class Achievements extends Component{
             about : "Secured 2nd rank out of 800 Coders in Coding Competition by Coding Club.",
         }]
 
+    }
+
+    componentDidMount(){
+        axios.get('/achievements.json')
+        .then(response =>{
+            const achievements = [];
+            for(let key in response.data){
+                achievements.push({
+                    ...response.data[key]
+                });
+            }
+            this.setState({achievements: achievements});
+        }).catch(error =>{
+            console.log(error.data);
+        })
     }
 
     render(){

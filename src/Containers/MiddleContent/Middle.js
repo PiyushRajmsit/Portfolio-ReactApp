@@ -1,10 +1,27 @@
 import React,{Component,Fragment} from 'react';
 import {Container,Row,Col,Media,Image,Button} from 'react-bootstrap';
 import Profile from '../../Assets/Images/Profile-2.jpg';
+import axios from '../../axios';
+import LineShimmer from '../../UI/Shimmer/Shimmer';
 import './Middle.css';
 class Middle extends Component{
-    render(){
 
+    state = null;
+
+    componentDidMount(){
+        axios.get('/aboutMe.json')
+        .then( res =>{
+            // console.log(res);
+            const response = res.data;
+            const aboutMe = response.about;
+            const address = response.address;
+            const email = response.email;
+            this.setState({about: aboutMe,address:address,email: email});
+        }).catch(error =>{
+            console.log(error);
+        });
+    }
+    render(){
         return(
             <Fragment>
                 <Container id="aboutMe">
@@ -20,16 +37,15 @@ class Middle extends Component{
                             </h1>
                             <div>
                                 <h5 className="intro-sec">
-                                    With A Bachelor's Degree in Computer Science, A Software Engineer with Experience in Building Large-Scalable Products using Latest Technologies.
-                                    Currently Working as a Software Engineer in MakemyTrip (Gurugram) in Flights-Teams. 
+                                    {this.state === null ? <LineShimmer styles={{width: "80%",height: "6em"}}/> : this.state.about} 
                                 </h5>
                             </div>
                             <div className="info-section">
                                 <ul className="about-info mt-4">
                                     <li><div className="field"> Name : </div>  <span className="answer"> Piyush Raj</span></li>
                                     <li><span className="field"> Date of Birth : </span> <span className="answer"> 1st March,1997</span></li>
-                                    <li><span className="field"> Address : </span> <span className="answer">Gurugram,India</span></li>
-                                    <li><span className="field"> Email : </span> <span className="answer">piyraj007@gmail.com</span></li>
+                                    <li><span className="field"> Address : </span> {this.state === null ? <LineShimmer styles={{width: "50%",height: "1.2em"}}/> : <span className="answer">{this.state.address}</span>}</li>
+                                    <li><span className="field"> Email : </span> <span className="answer">{ this.state === null ? <LineShimmer styles={{width: "50%",height: "1.2em"}}/> : this.state.email}</span></li>
                                 </ul>
                                 <div className="about-info">
                                     <Button size="lg"> Download CV </Button>

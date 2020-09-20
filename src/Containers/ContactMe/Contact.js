@@ -32,7 +32,7 @@ const Contact = () =>{
                         <div className="col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated">
                             <div className="align-self-stretch box text-center p-4 shadow">
 
-                                <GitHubIcon color="black" style={{ fontSize: 45}}/>
+                                <GitHubIcon style={{ fontSize: 45}}/>
                                 <h3 className="mb-4"> Github </h3>
                                 <p><a href="https://github.com/PiyushRajmsit">Piyush Raj</a></p>
                             </div>

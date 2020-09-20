@@ -1,5 +1,6 @@
 import React,{Component,Fragment} from 'react';
 import Experience from './Experience/Experience';
+import axios from '../../../axios';
 class Experiences extends Component{
     state = {
         workExp:[
@@ -17,6 +18,22 @@ class Experiences extends Component{
             }]
 
     }
+    componentDidMount(){
+        axios.get('/experience.json')
+        .then(response =>{
+            const fetchWorkEx = [];
+            for(let key in response.data){
+                fetchWorkEx.push({
+                    ...response.data[key]
+                })
+            }
+            this.setState({workExp : fetchWorkEx});
+            // console.log(fetchWorkEx);
+        }).catch(error =>{
+            console.log(error);
+        })
+    }
+
     render(){
         let exp = this.state.workExp.map(ex => (
             <Experience key={ex.date} date={ex.date} title={ex.title} company={ex.company} about={ex.about} />

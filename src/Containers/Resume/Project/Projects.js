@@ -1,3 +1,4 @@
+import axios from '../../../axios';
 import React,{Component,Fragment} from 'react';
 import Project from './Project/Project';
 
@@ -15,7 +16,21 @@ class Projects extends Component{
         }]
 
     }
-
+    componentDidMount(){
+        axios.get('/projects.json')
+        .then(response =>{
+            const projects = [];
+            for(let key in response.data){
+                projects.push({
+                    ...response.data[key]
+                })
+            }
+            // console.log(response);
+            this.setState({projects: projects});
+        }).catch(error =>{
+            console.log(error);
+        })
+    }
     render(){
         let projects = this.state.projects.map(pro => (
             <Project key={pro.date} date={pro.date} title={pro.title} about={pro.about}/>
